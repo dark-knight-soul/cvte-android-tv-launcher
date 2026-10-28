@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Разъём HDMI -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M2.5,7h19v6.8l-2.7,3.7h-13.6l-2.7,-3.7z M4.5,9v4.2l1.7,2.3h11.6l1.7,-2.3v-4.2z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M7,10.5h10v1.6h-10z" />
+</vector>

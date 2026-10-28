@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF0A0E1A</color>
+
+    <style name="Theme.Home" parent="android:Theme.Material.NoActionBar.Fullscreen">
+        <!-- Тёмный фон сразу, чтобы при запуске не мигал белый экран -->
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:colorAccent">#FF8AB4FF</item>
+        <item name="android:windowShowWallpaper">false</item>
+        <item name="android:windowDisablePreview">false</item>
+    </style>
+
+    <style name="Theme.Home.Tv">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <style name="Theme.Home.Dialog" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:colorAccent">#FF8AB4FF</item>
+    </style>
+</resources>

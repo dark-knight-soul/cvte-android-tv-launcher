@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Баннер 16:9 для списков приложений Android TV -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="160"
+    android:viewportHeight="90">
+    <path android:pathData="M0,0h160v90h-160z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endColor="#FF2A8CFF"
+                android:endX="160"
+                android:endY="90"
+                android:startColor="#FF7B4DFF"
+                android:startX="0"
+                android:startY="0"
+                android:type="linear" />
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M80,20L55,42h7.5v25h12.5v-15h10v15h12.5v-25h7.5z" />
+</vector>

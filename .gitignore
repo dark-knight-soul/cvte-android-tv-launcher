@@ -1,0 +1,23 @@
+# Инструменты сборки (JDK, Android SDK, Gradle, adb) — скачиваются отдельно, см. README
+tools/
+
+# Разбор прошивки CVTE: чужие APK и dex — в репозиторий не кладём
+research/
+
+# Данные конкретного телевизора и рабочие снимки экрана
+backup/
+screens/
+
+# Сборка
+launcher/.gradle/
+launcher/build/
+launcher/app/build/
+launcher/local.properties
+*.apk
+*.aab
+
+# IDE и система
+.idea/
+*.iml
+.DS_Store
+Thumbs.db

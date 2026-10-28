@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 7.0 не знает новые корневые сертификаты Let's Encrypt (ISRG Root X1/X2),
+  а на них работают Wikimedia (обои) и Open-Meteo (погода).
+  Добавляем их к системным — только для этого приложения.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/isrg_root_x1" />
+            <certificates src="@raw/isrg_root_x2" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
