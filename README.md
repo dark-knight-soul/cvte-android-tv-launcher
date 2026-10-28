@@ -16,12 +16,17 @@ TV / HDMI / AV inputs. **No root required.** APK ≈ 80 KB, no third-party libra
 |---|---|
 | ![Screensaver with analog clock](docs/screenshots/screensaver.jpg) | ![Night screensaver](docs/screenshots/screensaver-night.jpg) |
 
+| Screen mirroring (Miracast) |
+|---|
+| ![Screen mirroring waiting screen](docs/screenshots/cast.jpg) |
+
 ## Features
 
 - 🖼 **Wallpapers** — Wikimedia Commons featured pictures (landscapes, sunsets, cities, space), rotated every 20 min, cached offline
 - 🌤 **Weather** — Open-Meteo (no API key), city detected by IP; sunset time and moon phase
 - 📺 **TV inputs** — Antenna TV, AV, HDMI 1–3 via the CVTE firmware service; opens the native TV screen so Home / Source / channel keys work
 - 🔌 **Auto-HDMI** — switches to an HDMI input when a device is plugged in and turned on
+- 📲 **Screen mirroring (Miracast / Wi-Fi Display)** — from Android phones and Windows (Win + K); a clean waiting screen with the TV name and instructions is drawn over the stock MediaTek receiver and fades away once a phone connects
 - 🎵 **Now playing** — cover art and controls for Spotify, YouTube and other media sessions
 - 🌙 **Screensaver** — Ken Burns slideshow, analog clock, weather; dimmed space photos at night (23:00–06:00)
 - ⏻ **Auto power-off** — turns the TV off after N hours of screensaver via the firmware sleep timer (any key cancels)
@@ -77,6 +82,15 @@ adb shell cmd package set-home-activity io.github.darkknightsoul.tvlauncher/.Mai
 adb shell settings put secure enabled_notification_listeners io.github.darkknightsoul.tvlauncher/.MediaListener
 ```
 
+4. Optional, for screen mirroring — allow the waiting screen and give the TV a friendly name (applied after reboot):
+
+```bash
+adb shell appops set io.github.darkknightsoul.tvlauncher SYSTEM_ALERT_WINDOW allow
+adb shell settings put global wifi_p2p_device_name "'Living Room TV'"
+```
+
+> AirPlay (iPhone / Mac) is an Apple protocol and is not part of Miracast; use a third-party receiver app such as AirScreen.
+
 **Revert to the stock launcher:**
 
 ```bash
@@ -108,7 +122,8 @@ and `ipwho.is` (city for weather). Android 7 lacks the new Let's Encrypt roots, 
 
 **Возможности:** обои Wikimedia (пейзажи, закаты, города, космос), погода по городу из IP, закат и фаза луны;
 ТВ (антенна), AV, HDMI 1–3 через сервис прошивки CVTE — открываются в её родном ТВ-экране, где работают Home, Source и каналы;
-авто-переход на HDMI при подключении устройства; «Сейчас играет» для Spotify / YouTube; заставка с медленным наездом камеры,
+авто-переход на HDMI при подключении устройства; трансляция экрана (Miracast) с Android и Windows с красивым экраном ожидания;
+«Сейчас играет» для Spotify / YouTube; заставка с медленным наездом камеры,
 ночной режим, автоотключение ТВ по таймеру сна; последнее открытое приложение — первым.
 
 **Установка:** заводское меню **Настройки → Menu → 1147 → DEBUG → ADB ENABLE = ON**, перезагрузить ТВ из розетки,
@@ -117,4 +132,5 @@ and `ipwho.is` (city for weather). Android 7 lacks the new Let's Encrypt roots, 
 Заметки о прошивке CVTE (источники, кнопка Home, таймер сна, что можно отключать) — в [docs/cvte-firmware.md](docs/cvte-firmware.md).
 
 <sub>Keywords: Android TV launcher, custom launcher, CVTE, MediaTek MT5510, MT5510S, TP.MT5510S.PB803, Android 7, smart TV,
-remove ads, debloat, replace stock launcher, no root, home screen, leanback, screensaver, лаунчер для телевизора, Android TV без рекламы.</sub>
+remove ads, debloat, replace stock launcher, no root, home screen, leanback, screensaver, Miracast receiver, screen mirroring,
+Wi-Fi Display, лаунчер для телевизора, Android TV без рекламы, трансляция экрана.</sub>

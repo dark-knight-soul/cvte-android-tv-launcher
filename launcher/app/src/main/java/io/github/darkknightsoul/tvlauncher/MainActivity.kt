@@ -241,6 +241,8 @@ class MainActivity : Activity() {
 
     override fun onResume() {
         super.onResume()
+        // Вернулись на главный экран — экран ожидания трансляции больше не нужен
+        Cast.stop()
         resumed = true
         resetIdle()
     }
@@ -646,6 +648,17 @@ class MainActivity : Activity() {
                     updateHdmiState(inputId)
                 }
             }
+        }
+        // Трансляция экрана с телефона/ноутбука (Miracast) — последней плашкой
+        if (Cast.isAvailable(this)) {
+            sourcesRow.addView(SourceChip(this).apply {
+                name.text = "Трансляция"
+                status.text = "С телефона"
+                icon.setImageResource(R.drawable.ic_cast)
+                setOnClickListener {
+                    if (!Cast.start(this@MainActivity)) Toast.makeText(this@MainActivity, "Не удалось открыть трансляцию", Toast.LENGTH_SHORT).show()
+                }
+            }, tileParams(sourcesRow.childCount, dp(56)))
         }
         if (focusedIdx >= 0 && sourcesRow.childCount > 0) {
             sourcesRow.getChildAt(minOf(focusedIdx, sourcesRow.childCount - 1)).requestFocus()
